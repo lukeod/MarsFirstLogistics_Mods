@@ -6,12 +6,12 @@ using Il2CppInterop.Runtime;
 using Il2CppTMPro;
 using System;
 
-[assembly: MelonInfo(typeof(SpeedometerMod.SpeedometerPlugin), "Speedometer", "3.1.0", "Author")]
+[assembly: MelonInfo(typeof(HUDMod.HUDPlugin), "HUD", "0.1.0", "lukeod")]
 [assembly: MelonGame("Shape Shop", "Mars First Logistics")]
 
-namespace SpeedometerMod
+namespace HUDMod
 {
-    public class SpeedometerPlugin : MelonMod
+    public class HUDPlugin : MelonMod
     {
         private Game? gameInstance;
         private float updateTimer = 0f;
@@ -19,14 +19,14 @@ namespace SpeedometerMod
 
         // UI Components
         private GameObject? canvasGO;
-        private GameObject? speedometerGO;
+        private GameObject? hudGO;
         private TextMeshProUGUI? speedText;
         private TextMeshProUGUI? compassText;
         private bool uiInitialized = false;
 
         public override void OnInitializeMelon()
         {
-            LoggerInstance.Msg("Enhanced Speedometer Mod v3.1 Loaded!");
+            LoggerInstance.Msg("HUD Mod v0.1.0 Loaded!");
         }
 
         private void InitializeUI()
@@ -34,7 +34,7 @@ namespace SpeedometerMod
             try
             {
                 // Create Canvas GameObject
-                canvasGO = new GameObject("SpeedometerCanvas");
+                canvasGO = new GameObject("HUDCanvas");
                 UnityEngine.Object.DontDestroyOnLoad(canvasGO);
 
                 // Add Canvas component
@@ -50,14 +50,14 @@ namespace SpeedometerMod
                 // Add GraphicRaycaster
                 canvasGO.AddComponent(Il2CppType.Of<GraphicRaycaster>());
 
-                // Create speedometer panel
-                speedometerGO = new GameObject("SpeedometerPanel");
-                speedometerGO.transform.SetParent(canvasGO.transform, false);
+                // Create hud panel
+                hudGO = new GameObject("HUDPanel");
+                hudGO.transform.SetParent(canvasGO.transform, false);
 
-                var rectTransform = speedometerGO.GetComponent<RectTransform>();
+                var rectTransform = hudGO.GetComponent<RectTransform>();
                 if (rectTransform == null)
                 {
-                    rectTransform = speedometerGO.AddComponent(Il2CppType.Of<RectTransform>()).Cast<RectTransform>();
+                    rectTransform = hudGO.AddComponent(Il2CppType.Of<RectTransform>()).Cast<RectTransform>();
                 }
 
                 // Position in top-left corner
@@ -68,12 +68,12 @@ namespace SpeedometerMod
                 rectTransform.sizeDelta = new Vector2(400, 200);
 
                 // Add background panel for better visibility
-                var bgImage = speedometerGO.AddComponent(Il2CppType.Of<Image>()).Cast<Image>();
+                var bgImage = hudGO.AddComponent(Il2CppType.Of<Image>()).Cast<Image>();
                 bgImage.color = new Color(0, 0, 0, 0.6f);
 
                 // Create speed text
                 var speedTextGO = new GameObject("SpeedText");
-                speedTextGO.transform.SetParent(speedometerGO.transform, false);
+                speedTextGO.transform.SetParent(hudGO.transform, false);
                 var speedRT = speedTextGO.AddComponent(Il2CppType.Of<RectTransform>()).Cast<RectTransform>();
                 speedRT.anchorMin = new Vector2(0, 0.5f);
                 speedRT.anchorMax = new Vector2(1, 1);
@@ -94,7 +94,7 @@ namespace SpeedometerMod
 
                 // Create compass text
                 var compassTextGO = new GameObject("CompassText");
-                compassTextGO.transform.SetParent(speedometerGO.transform, false);
+                compassTextGO.transform.SetParent(hudGO.transform, false);
                 var compassRT = compassTextGO.AddComponent(Il2CppType.Of<RectTransform>()).Cast<RectTransform>();
                 compassRT.anchorMin = new Vector2(0, 0);
                 compassRT.anchorMax = new Vector2(1, 0.5f);
@@ -128,11 +128,11 @@ namespace SpeedometerMod
             if (updateTimer >= UPDATE_INTERVAL)
             {
                 updateTimer = 0f;
-                UpdateSpeedometer();
+                UpdateHUD();
             }
         }
 
-        private void UpdateSpeedometer()
+        private void UpdateHUD()
         {
             try
             {

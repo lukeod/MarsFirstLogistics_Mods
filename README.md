@@ -40,7 +40,7 @@ dotnet build
 ### Build a Specific Mod
 
 ```bash
-dotnet build SpeedometerMod/SpeedometerMod.csproj
+dotnet build HUDMod/HUDMod.csproj
 ```
 
 ## Installation
@@ -53,7 +53,7 @@ After building, copy the compiled DLL from the mod's `bin/Debug/net6.0/` or `bin
 
 ## Available Mods
 
-- **SpeedometerMod** - [Add description here]
+- **HUDMod** - [Add description here]
 
 ## Creating a New Mod
 
