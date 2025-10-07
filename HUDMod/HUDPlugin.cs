@@ -162,7 +162,7 @@ namespace HUDMod
                     }
                 }
 
-                if (isDriving && vehicle != null && speedText != null && compassText != null)
+                if (isDriving && vehicle != null && player != null && speedText != null && compassText != null)
                 {
                     // Get speed
                     float speedMPS = vehicle.vehicleSpeed;

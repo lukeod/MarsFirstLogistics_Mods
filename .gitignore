@@ -439,3 +439,7 @@ libs/**/*.pdb
 # Mod build outputs (uncomment and customize per mod as needed)
 # **/dist/
 # **/output/
+
+# Built mod DLLs - include these for distribution
+!builds/
+!builds/**
