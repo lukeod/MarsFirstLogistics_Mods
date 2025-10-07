@@ -416,3 +416,26 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# Game DLLs and references - do not commit game/Unity assemblies
+libs/**/*.dll
+libs/**/*.xml
+libs/**/*.pdb
+
+# Mod build outputs (uncomment and customize per mod as needed)
+# **/dist/
+# **/output/

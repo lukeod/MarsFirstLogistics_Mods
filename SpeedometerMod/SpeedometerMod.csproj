@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- MelonLoader -->
+    <Reference Include="MelonLoader">
+      <HintPath>../libs/MelonLoader/MelonLoader.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Il2CppInterop -->
+    <Reference Include="Il2CppInterop.Runtime">
+      <HintPath>../libs/MelonLoader/Il2CppInterop.Runtime.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Il2CppInterop.Common">
+      <HintPath>../libs/MelonLoader/Il2CppInterop.Common.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Game Assemblies -->
+    <Reference Include="Assembly-CSharp">
+      <HintPath>../libs/Il2CppAssemblies/Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Il2Cppmscorlib">
+      <HintPath>../libs/Il2CppAssemblies/Il2Cppmscorlib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Unity Assemblies -->
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>../libs/Il2CppAssemblies/UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>../libs/Il2CppAssemblies/UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>../libs/Il2CppAssemblies/UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>../libs/Il2CppAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>../libs/Il2CppAssemblies/UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>../libs/Il2CppAssemblies/UnityEngine.UIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
